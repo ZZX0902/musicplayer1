@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--定义一个高亮状态  用来表示那些被多选的音乐-->
+    <item android:state_activated="true" android:drawable="@color/colorHighlight"/>
+</selector>

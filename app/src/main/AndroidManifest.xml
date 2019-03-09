@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  添加读取磁盘的权限  -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anddle.anddlemusic">
+    <!-- //添加读取外部存储器权限   -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MusicListActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--声明新创建的Service-->
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true" />
+        <!-- 声明新添加的ContentProvider ，其中android:authorities属性值要写为定义MusicContentProvider中代码的AUTHORITY同一值
+             android:exported="true"说明可以被其他应用使用-->
+        <provider
+            android:name=".PlayListContentProvider"
+            android:authorities="com.anddle.anddlemusicprovider"
+            android:enabled="true"
+            android:exported="true" />
+
+    </application>
+    <!--    -->
+</manifest>
